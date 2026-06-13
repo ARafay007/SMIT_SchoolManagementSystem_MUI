@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { Container, Box, TextField, Button, FormLabel } from '@mui/material';
 import api from '../util/api';
 
@@ -11,6 +12,8 @@ function Login() {
         name: '',
         password: '',
     });
+
+    const navigate = useNavigate();
 
     const onHandleInput = (event, stateName) => {
         // if(stateName === 'email')
@@ -39,10 +42,13 @@ function Login() {
 
             // const data = await resp.json();
 
-            const {data} = await api.post('/signin', loginForm);
+            const {data} = await api.post('/student/signin', loginForm);
 
-            console.log(data);
-            localStorage.setItem('access_token', data.token)
+            if(data.token){
+                localStorage.setItem('access_token', data.token);
+                console.log('asdasd');
+                navigate('/');
+            }
         }
 
     };
