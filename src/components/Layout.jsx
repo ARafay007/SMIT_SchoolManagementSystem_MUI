@@ -117,6 +117,7 @@ const Layout = () => {
 
     const links = [
         { text: 'Students List', link: 'studentsList' },
+        { text: 'Add Student', link: 'addStudent' },
         { text: 'Teachers List', link: 'teachersList' },
     ];
 
