@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, Link } from 'react-router';
 import { Container, Box, TextField, Button, FormLabel } from '@mui/material';
 import api from '../util/api';
 
@@ -104,6 +104,11 @@ function Login() {
                         }}
                         onChange={(event) => { onHandleInput(event, 'password') }}
                     />
+                    <Link to="/signup">
+                        <FormLabel sx={{ textDecoration: "none", color: "purple" }}>
+                            Click here to SignUp
+                        </FormLabel>
+                    </Link>
                     <Button variant="contained" type='submit'>Login</Button>
                 </Box>
             </form>
