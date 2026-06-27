@@ -1,6 +1,8 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://localhost:8000" });
+// https://smit-sms-backend.onrender.com
+const environment = import.meta.env.REACT_APP_ENV
+const api = axios.create({ baseURL: environment === "prod" ? "https://smit-sms-backend.onrender.com" : "http://localhost:8000"});
 
 api.interceptors.request.use((config) => {
     const token = localStorage.getItem("access_token");
